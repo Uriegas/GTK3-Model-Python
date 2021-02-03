@@ -6,11 +6,34 @@ from gi.repository import Gtk
 class MyWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title = "The Window")
-        self.set_default_size(100, 50)
+        self.set_border_width(10)
+        listbox = Gtk.ListBox()
+        listbox.set_selection_mode(Gtk.SelectionMode.NONE)
+        self.add(listbox)
+
+        row_1 = Gtk.ListBoxRow()
+        box_1 = Gtk.Box(orientation = Gtk.Orientation.HORIZONTAL, spacing = 130)
+        row_1.add(box_1)
+        label = Gtk.Label("Check it of")
+        check = Gtk.CheckButton()
+        box_1.pack_start(label, True, True, 0)
+        box_1.pack_start(check, True, True, 0)
+        listbox.add(row_1)
+
+        row_2 = Gtk.ListBoxRow()
+        box_2 = Gtk.Box(orientation = Gtk.Orientation.HORIZONTAL, spacing = 100)
+        row_2.add(box_2)
+        label = Gtk.Label("This is check")
+        switch = Gtk.Switch()
+        box_2.pack_start(label, True, True, 0)
+        box_2.pack_start(switch, True, True, 0)
+        listbox.add(row_2)
+
         #Box
         self.box = Gtk.Box(spacing=10)
         self.add(self.box)
         self.grid = Gtk.Grid()
+        self.grid2 = Gtk.Grid()
 
         #Buttons
         #Array of buttons
@@ -21,10 +44,11 @@ class MyWindow(Gtk.Window):
             self.arraylabels.append( Gtk.Label("This is button: {}".format(i)) )
 
         for j in range( len(self.arraybuttons) ):
-            self.arraybuttons[j].add(self.arraylabels[j])
             self.grid.add(self.arraybuttons[j])
+            self.grid2.add(self.arraylabels[j])
 
-        self.box.pack_start(self.grid, True, True, 0)
+        self.box.pack_start(self.grid2, True, True, 0)
+        self.box.add(self.grid)
         
 
         #Bacon button
