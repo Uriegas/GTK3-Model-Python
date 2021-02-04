@@ -78,15 +78,15 @@ win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
 '''
-class Handler:
-    def onDestroy(self, *args):
-        Gtk.main_quit()
+def onDestroy(self, widget):
+    Gtk.main_quit()
 
 builder = Gtk.Builder()
 builder.add_from_file("simple.glade")
-builder.connect_signals(Handler())
+#builder.connect_signals(Handler())
 
 window = builder.get_object("Window")
+window.connect("delete_event", onDestroy)
 window.show_all()
 
 
