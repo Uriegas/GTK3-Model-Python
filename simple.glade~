@@ -6,7 +6,7 @@
     <property name="can-focus">False</property>
     <property name="default-width">440</property>
     <property name="default-height">250</property>
-    <property name="icon">com.github.johnfactotum.Foliate.svg</property>
+    <property name="icon">Purple_check.svg</property>
     <child>
       <placeholder/>
     </child>
