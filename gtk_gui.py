@@ -3,6 +3,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+'''
 class MyWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title = "YazLang")
@@ -38,7 +39,6 @@ class MyWindow(Gtk.Window):
         box_2.pack_start(switch, True, True, 0)
         listbox.add(row_2)
 
-'''
         #Box
         self.box = Gtk.Box(spacing=10)
         self.add(self.box)
@@ -73,8 +73,13 @@ class MyWindow(Gtk.Window):
 
     def on_button_clicked(self, widget):
         print("Hi")
-'''
 win = MyWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()
+'''
+
+builder = Gtk.Builder()
+builder.add_from_file("gui.glade")
+window = builder.get_object("Window")
+window.show_all()
