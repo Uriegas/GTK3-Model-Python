@@ -5,8 +5,17 @@ from gi.repository import Gtk
 
 class MyWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title = "The Window")
+        Gtk.Window.__init__(self, title = "YazLang")
         self.set_border_width(10)
+        self.set_default_size(200, 100)
+
+        #Title
+        Title = Gtk.Box()
+        self.add(Title)
+        label = Gtk.Label("Welcome to YazzLang")
+        Title.add(label)
+
+        #ListBox
         listbox = Gtk.ListBox()
         listbox.set_selection_mode(Gtk.SelectionMode.NONE)
         self.add(listbox)
@@ -29,6 +38,7 @@ class MyWindow(Gtk.Window):
         box_2.pack_start(switch, True, True, 0)
         listbox.add(row_2)
 
+'''
         #Box
         self.box = Gtk.Box(spacing=10)
         self.add(self.box)
@@ -63,7 +73,7 @@ class MyWindow(Gtk.Window):
 
     def on_button_clicked(self, widget):
         print("Hi")
-
+'''
 win = MyWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
